@@ -2,13 +2,19 @@
     "name": "azizramdan-lab/jadwal-shalat",
     "description": "Jadwal shalat yang diambil dari situs kemenag",
     "require": {
-        "php": "^7.2 | ^8.0"
+        "php": "^7.2",
+        "guzzlehttp/guzzle": "^7.4",
+        "symfony/dom-crawler": "^5.4",
+        "symfony/css-selector": "^5.4"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "AzizRamdanLab\\JadwalShalat\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "authors": [
         {
