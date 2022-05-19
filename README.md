@@ -1,6 +1,12 @@
 # API Jadwal Shalat Kemenag
 Data jadwal shalat diambil dari situs kemenag https://bimasislam.kemenag.go.id/jadwalshalat
 
+# Versi
+| PHP | Package |
+| --- | --- |
+| <8.0 | v1.x |
+| >= 8.0 | v2.x |
+
 # Instalasi
 ```bash
 composer require azizramdan-lab/jadwal-shalat
