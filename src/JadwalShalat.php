@@ -7,6 +7,11 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class JadwalShalat
 {
+    /**
+     * Ambil daftar provinsi
+     *
+     * @return array
+     */
     public function getProvinsi(): array
     {
         $client = new Client([
@@ -33,6 +38,12 @@ class JadwalShalat
         return $provinsi;
     }
 
+    /**
+     * Ambil daftar kabupaten/kota berdasarkan provinsi
+     * @param string $provinsiId
+     *
+     * @return array
+     */
     public function getKabupatenKota(string $provinsiId): array
     {
         $client = new Client([
@@ -60,6 +71,16 @@ class JadwalShalat
         return $kabkot;
     }
 
+    /**
+     * Ambil jadwal shalat dalam 1 bulan
+     *
+     * @param string $provinsiId
+     * @param string $kabkotId
+     * @param int $bulan
+     * @param int $tahun
+     *
+     * @return array
+     */
     public function getJadwalShalat(string $provinsiId, string $kabkotId, int $bulan, int $tahun): array
     {
         $client = new Client([
@@ -75,7 +96,7 @@ class JadwalShalat
                 'thn' => $tahun,
             ]
         ]);
-        
+
         return json_decode($response->getBody()->getContents(), true);
     }
 }
