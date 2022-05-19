@@ -59,4 +59,23 @@ class JadwalShalat
 
         return $kabkot;
     }
+
+    public function getJadwalShalat(string $provinsiId, string $kabkotId, int $bulan, int $tahun): array
+    {
+        $client = new Client([
+            'base_uri' => BASE_URI_KEMENAG
+        ]);
+
+        $response = $client->post('/ajax/getShalatbln', [
+            'cookies' => getCookies(),
+            'form_params' => [
+                'x' => $provinsiId,
+                'y' => $kabkotId,
+                'bln' => $bulan,
+                'thn' => $tahun,
+            ]
+        ]);
+        
+        return json_decode($response->getBody()->getContents(), true);
+    }
 }
