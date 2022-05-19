@@ -6,3 +6,4 @@
 /.php_cs.tests.cache
 /composer.lock
 /vendor
+.php-cs-fixer.cache
